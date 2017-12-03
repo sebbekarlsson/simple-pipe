@@ -34,3 +34,6 @@
 
     pip install pytest
     pytest .
+
+## License
+> [GPL 3.0](gpl-3.0.md)
