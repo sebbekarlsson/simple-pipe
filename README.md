@@ -29,3 +29,8 @@
 > And then execute:
 
     python setup.py install
+
+## Running Unit Tests
+
+    pip install pytest
+    pytest .
