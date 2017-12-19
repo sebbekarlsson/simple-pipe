@@ -1,4 +1,4 @@
-from pypipe.methods import pipe
+from simple_pipe.methods import pipe
 
 
 def test_hello_world():

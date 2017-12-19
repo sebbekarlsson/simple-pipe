@@ -3,7 +3,7 @@
 
 ## Usage:
 
-    from pypipe.methods import pipe
+    from simple_pipe.methods import pipe
     
     
     pipe(<your_input>, [<list_of_methods>])
@@ -13,7 +13,7 @@
 
 ## Example:
 
-    from pypipe.methods import pipe
+    from simple_pipe.methods import pipe
 
 
     myvar = 'hello world'
