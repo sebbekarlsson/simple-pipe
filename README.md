@@ -24,7 +24,7 @@
 
 
 ## Install
-* Run:
+> Run:
 
     pip install simple-pipe
 
