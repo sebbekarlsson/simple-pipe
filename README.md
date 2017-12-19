@@ -24,6 +24,12 @@
 
 
 ## Install
+* Run:
+
+    pip install simple-pipe
+
+> or ...
+
 * Clone down the repository
 
 > And then execute:
