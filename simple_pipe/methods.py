@@ -1,7 +1,4 @@
-def pipe(_arg, methods):
-    if len(methods):
-        _arg = methods[0](_arg)
-        methods.pop(0)
-        return pipe(_arg, methods)
+from functools import reduce
 
-    return _arg
+def pipe(_arg, methods):
+    return reduce(lambda value, function: function(value), methods, _arg)
