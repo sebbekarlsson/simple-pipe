@@ -6,7 +6,7 @@
     from simple_pipe.methods import pipe
     
     
-    pipe(<your_input>, [<list_of_methods>])
+    pipe([<list_of_methods>], <your-input>)
 
     # your input variable will go through all the methods,
     # and then the pipe method will return the final modified variable.
@@ -18,9 +18,29 @@
 
     myvar = 'hello world'
 
-    print(pipe(myvar, [lambda x: x.title(), lambda x: x.replace(' ', '')]))
+    print(pipe([lambda x: x.title(), lambda x: x.replace(' ', '')], myvar))
 
     >> HelloWorld
+
+
+> You can also create re-usable `compositions` like this _(note the `compose=True` flag)_:
+
+    objects = [{'name': 'John'}, {'name': 'Lisa'}, {'Name': 'Eric'}]
+
+    composition = pipe([
+        lambda x: safe_set_attribute(x, 'age', 21),
+        lambda x: safe_set_attribute(x, 'color', 'green')
+    ], compose=True)
+
+    [composition.execute(obj) for obj in objects]
+
+    print(objects)
+
+    >> [
+        {'name': 'John', 'age': 21, 'color': 'green'},
+        {'name': 'Lisa', 'age': 21, 'color': 'green'},
+        {'Name': 'Eric', 'age': 21, 'color': 'green'}
+    ]
 
 
 ## Install
