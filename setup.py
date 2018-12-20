@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='simple-pipe',
-    version='1.1',
+    version='1.0.2',
     url='https://github.com/sebbekarlsson/simple-pipe',
     author='ianertson',
     author_email='ianertson@gmail.com',
