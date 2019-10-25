@@ -3,10 +3,10 @@
 
 ## Usage:
 
-    from simple_pipe.methods import pipe
+    from simple_pipe import pipe
     
     
-    pipe([<list_of_methods>], <your-input>)
+    pipe(<methods separated by comma>)(<your input>)
 
     # your input variable will go through all the methods,
     # and then the pipe method will return the final modified variable.
