@@ -1,4 +1,4 @@
-from simple_pipe.methods import pipe
+from simple_pipe import pipe
 
 
 def safe_set_attribute(obj, attr, value):
@@ -10,23 +10,21 @@ def safe_set_attribute(obj, attr, value):
 def test_hello_world():
     myvar = 'hello world'
 
-    composition = pipe(
-        [lambda x: x.title(), lambda x: x.replace(' ', '')], compose=True
-    )
+    composition = pipe(lambda x: x.title(), lambda x: x.replace(' ', ''))
 
-    assert composition.execute(myvar) == 'HelloWorld'
-    assert composition.execute('john doe 256') == 'JohnDoe256'
+    assert composition(myvar) == 'HelloWorld'
+    assert composition('john doe 256') == 'JohnDoe256'
 
 
 def test_objects():
     objects = [{'name': 'John'}, {'name': 'Lisa'}, {'Name': 'Eric'}]
 
-    composition = pipe([
+    composition = pipe(
         lambda x: safe_set_attribute(x, 'age', 21),
         lambda x: safe_set_attribute(x, 'color', 'green')
-    ], compose=True)
+    )
 
     for obj in objects:
-        composition.execute(obj)
+        composition(obj)
         assert obj['age'] == 21
         assert obj['color'] == 'green'

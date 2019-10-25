@@ -12,27 +12,29 @@
     # and then the pipe method will return the final modified variable.
 
 ## Example:
+```python
 
-    from simple_pipe.methods import pipe
+    from simple_pipe import pipe
 
 
     myvar = 'hello world'
 
-    print(pipe([lambda x: x.title(), lambda x: x.replace(' ', '')], myvar))
+    print(pipe(lambda x: x.title(), lambda x: x.replace(' ', ''))(myvar))
 
     >> HelloWorld
+```
 
-
-> You can also create re-usable `compositions` like this _(note the `compose=True` flag)_:
+> You can also create re-usable `compositions` like this:
+```python
 
     objects = [{'name': 'John'}, {'name': 'Lisa'}, {'Name': 'Eric'}]
 
-    composition = pipe([
+    composition = pipe(
         lambda x: safe_set_attribute(x, 'age', 21),
         lambda x: safe_set_attribute(x, 'color', 'green')
-    ], compose=True)
+    )
 
-    [composition.execute(obj) for obj in objects]
+    objects = [composition(obj) for obj in objects]
 
     print(objects)
 
@@ -41,7 +43,7 @@
         {'name': 'Lisa', 'age': 21, 'color': 'green'},
         {'Name': 'Eric', 'age': 21, 'color': 'green'}
     ]
-
+```
 
 ## Install
 > Run:
